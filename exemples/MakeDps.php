@@ -14,7 +14,7 @@ try {
     $password = 'senha_certificado';
 
     $cert = \NFePHP\Common\Certificate::readPfx($content, $password);
-    $tools = new \Hadder\NfseNacional\Tools($configJson, $cert);
+    $tools = new \NfseNacional\Tools($configJson, $cert);
 
     $std = new stdClass();
 
@@ -132,7 +132,7 @@ try {
     $std->infDPS->valores->trib->totTrib = new stdClass();
     $std->infDPS->valores->trib->totTrib->indTotTrib = 0;
 
-    $dps = new \Hadder\NfseNacional\Dps($std);
+    $dps = new \NfseNacional\Dps($std);
     $response = $tools->enviaDps($dps->render());
     //    $response = [
     //        "tipoAmbiente" => 1,

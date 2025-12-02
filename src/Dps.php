@@ -1,6 +1,6 @@
 <?php
 
-namespace Hadder\NfseNacional;
+namespace NfseNacional;
 
 /**
  * Class for RPS construction and validation of data
@@ -276,7 +276,7 @@ class Dps implements DpsInterface
                     );
                 }
 
-                //                dd($this->std->infdps->prest->end);
+
                 $this->dom->addChild(
                     $end_inner,
                     'xLgr',

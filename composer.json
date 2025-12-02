@@ -9,7 +9,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Hadder\\NfseNacional\\": "src/"
+      "NfseNacional\\": "src/"
     }
   },
   "minimum-stability": "dev",

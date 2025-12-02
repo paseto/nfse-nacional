@@ -1,6 +1,6 @@
 <?php
 
-namespace Hadder\NfseNacional;
+namespace NfseNacional;
 
 use DOMDocument;
 use NFePHP\Common\Certificate;
@@ -78,7 +78,7 @@ class Tools extends RestCurl
 
     public function cancelaNfse($std)
     {
-        $dps = new \Hadder\NfseNacional\Dps($std);
+        $dps = new \NfseNacional\Dps($std);
         $content = $dps->renderEvento($std);
         //$content = $this->canonize($content);
         $content = $this->sign($content, 'infPedReg', '', 'pedRegEvento');
@@ -99,7 +99,6 @@ class Tools extends RestCurl
         $dom->formatOutput = false;
         $dom->preserveWhiteSpace = false;
         $dom->loadXML($content);
-        dump($dom->saveXML());
         return $dom->C14N(false, false, null, null);
     }
 }
