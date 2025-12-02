@@ -1,5 +1,5 @@
 {
-  "name": "hadder/nfse-nacional",
+  "name": "paseto/nfse-nacional",
   "description": "Pacote para geração de NFSe Nacional usando componentes NFePHP (https://github.com/nfephp-org)",
   "keywords": [
     "nfse-nacional",
@@ -10,21 +10,11 @@
   "autoload": {
     "psr-4": {
       "Hadder\\NfseNacional\\": "src/"
-    },
-    "files": [
-      "Helpers.php"
-    ]
-  },
-  "authors": [
-    {
-      "name": "Fernando Friedrich",
-      "email": "fernando@hadder.com.br"
     }
-  ],
+  },
   "minimum-stability": "dev",
   "require": {
     "php": "^8.2",
-    "symfony/var-dumper": "^7.1",
     "tecnickcom/tcpdf": "^6.7",
     "nfephp-org/sped-common": "^5.1",
     "ext-dom": "*",
@@ -32,6 +22,9 @@
     "ext-curl": "*",
     "ext-zlib": "*",
     "ext-openssl": "*"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^7.1"
   },
   "config": {
     "optimize-autoloader": true
