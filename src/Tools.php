@@ -1,6 +1,6 @@
 <?php
 
-namespace NfseNacional;
+namespace Paseto\NfseNacional;
 
 use DOMDocument;
 use NFePHP\Common\Certificate;
@@ -78,7 +78,7 @@ class Tools extends RestCurl
 
     public function cancelaNfse($std)
     {
-        $dps = new \NfseNacional\Dps($std);
+        $dps = new \Paseto\NfseNacional\Dps($std);
         $content = $dps->renderEvento($std);
         //$content = $this->canonize($content);
         $content = $this->sign($content, 'infPedReg', '', 'pedRegEvento');

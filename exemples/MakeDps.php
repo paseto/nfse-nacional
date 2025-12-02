@@ -14,7 +14,7 @@ try {
     $password = 'senha_certificado';
 
     $cert = \NFePHP\Common\Certificate::readPfx($content, $password);
-    $tools = new \NfseNacional\Tools($configJson, $cert);
+    $tools = new \Paseto\NfseNacional\Tools($configJson, $cert);
 
     $std = new stdClass();
 
@@ -41,7 +41,7 @@ try {
     //    $std->infDPS->prest->cNaoNIF = 0; // Motivo para não informação do NIF: 0 - Não informado na nota de origem; 1 - Dispensado do NIF; 2 - Não exigência do NIF;
     //    $std->infDPS->prest->CAEPF = '0'; // Número do Cadastro de Atividade Econômica da Pessoa Física (CAEPF) do prestador do serviço.
     //    $std->infDPS->prest->IM = '0'; // Número de inscrição municipal do prestador do serviço.
-    //    $std->infDPS->prest->xNome = 'Hadder Soft';
+    //    $std->infDPS->prest->xNome = 'Paseto Soft';
     $std->infDPS->prest->fone = '00000000000';
 //    $std->infDPS->prest->email = '';
 
@@ -72,7 +72,7 @@ try {
     //    $std->infDPS->toma->cNaoNIF = 0; // Motivo para não informação do NIF: 0 - Não informado na nota de origem; 1 - Dispensado do NIF; 2 - Não exigência do NIF;
     //    $std->infDPS->toma->CAEPF = '0'; // Número do Cadastro de Atividade Econômica da Pessoa Física (CAEPF) do tomaador do serviço.
     //    $std->infDPS->toma->IM = '0'; // Número de inscrição municipal do tomaador do serviço.
-    $std->infDPS->toma->xNome = 'Hadder Soft'; // Número de inscrição municipal do tomaador do serviço.
+    $std->infDPS->toma->xNome = 'Paseto Soft'; // Número de inscrição municipal do tomaador do serviço.
 //    $std->infDPS->toma->fone = '';
 //    $std->infDPS->toma->email = '';
 
@@ -132,7 +132,7 @@ try {
     $std->infDPS->valores->trib->totTrib = new stdClass();
     $std->infDPS->valores->trib->totTrib->indTotTrib = 0;
 
-    $dps = new \NfseNacional\Dps($std);
+    $dps = new \Paseto\NfseNacional\Dps($std);
     $response = $tools->enviaDps($dps->render());
     //    $response = [
     //        "tipoAmbiente" => 1,

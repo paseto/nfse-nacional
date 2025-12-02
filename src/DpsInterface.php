@@ -1,6 +1,6 @@
 <?php
 
-namespace NfseNacional;
+namespace Paseto\NfseNacional;
 
 interface DpsInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NfseNacional\Common;
+namespace Paseto\NfseNacional\Common;
 
 use Exception;
 use NFePHP\Common\Certificate;

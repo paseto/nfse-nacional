@@ -1,9 +1,9 @@
 <?php
 
-namespace NfseNacional;
+namespace Paseto\NfseNacional;
 
 use Exception;
-use NfseNacional\Common\RestBase;
+use Paseto\NfseNacional\Common\RestBase;
 use NFePHP\Common\Certificate;
 use NFePHP\Common\Exception\SoapException;
 use NFePHP\Common\Signer;

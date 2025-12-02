@@ -9,7 +9,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "NfseNacional\\": "src/"
+      "Paseto\\NfseNacional\\": "src/"
     }
   },
   "minimum-stability": "dev",

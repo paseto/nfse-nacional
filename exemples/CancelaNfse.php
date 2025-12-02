@@ -11,7 +11,7 @@ try {
     $content = file_get_contents('certificado.pfx');
     $password = 'senha_certificado';
     $cert = \NFePHP\Common\Certificate::readPfx($content, $password);
-    $tools = new \NfseNacional\Tools($configJson, $cert);
+    $tools = new \Paseto\NfseNacional\Tools($configJson, $cert);
 
     $std = new stdClass();
     $std->nPedRegEvento = 1; //Número do Pedido de Registro do Evento (nPedRegEvento) (3)
