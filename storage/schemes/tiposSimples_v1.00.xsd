@@ -30,7 +30,7 @@
   <xs:simpleType name="TSIdNFSe">
     <xs:annotation>
       <xs:documentation>
-	    Informar o identificador precedido do literal ‘NFS’. A regra de formação do identificador de 53 posições da NFS-e é:
+        Informar o identificador precedido do literal ‘NFS’. A regra de formação do identificador de 53 posições da NFS-e é:
         "NFS" + Cód.Mun.(7) + Amb.Ger.(1) + Tipo de Inscrição Federal(1) + Inscrição Federal(14) + No.NFS-e(13) + AnoMes Emis.(4) + Cód.Num.(9) + DV(1)
       </xs:documentation>
     </xs:annotation>
@@ -56,7 +56,9 @@
   <xs:simpleType name="TSTipoAmbiente">
     <xs:annotation>
       <xs:documentation>
-		  Tipos de ambiente do Sistema Nacional NFS-e: 1 - Produção; 2 - Homologação;
+        Tipos de ambiente do Sistema Nacional NFS-e: 
+        1 - Produção; 
+        2 - Homologação;
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
@@ -68,7 +70,7 @@
   <xs:simpleType name="TSAmbGeradorNFSe">
     <xs:annotation>
       <xs:documentation>
-	    Tipo Ambiente Gerador de NFS-e:
+        Tipo Ambiente Gerador de NFS-e:
         1 - Prefeitura;
         2 - Sistema Nacional da NFS-e;
       </xs:documentation>
@@ -82,7 +84,7 @@
   <xs:simpleType name="TSAmbGeradorEvt">
     <xs:annotation>
       <xs:documentation>
-	    Tipo Ambiente gerador do evento:
+        Tipo Ambiente gerador do evento:
         1- Prefeitura;
         2- Sefin Nacional;
         3- Ambiente Nacional.
@@ -98,7 +100,7 @@
   <xs:simpleType name="TSTipoEmissao">
     <xs:annotation>
       <xs:documentation>
-	    Tipo de emissão da NFS-e:
+        Tipo de emissão da NFS-e:
         1 - Emissão normal no modelo da NFS-e Nacional;
         2 - Emissão original em leiaute próprio do município com transcrição para o modelo da NFS-e Nacional.
       </xs:documentation>
@@ -155,7 +157,7 @@
   <xs:simpleType name="TSSerieDPS">
     <xs:restriction base="xs:string">
       <xs:maxLength value="5"/>
-      <xs:minLength value="1"/>
+      <xs:pattern value="^0{0,4}\d{1,5}$"/>
       <xs:whiteSpace value="preserve"/>
     </xs:restriction>
   </xs:simpleType>
@@ -584,7 +586,7 @@
   <xs:simpleType name="TSModoPrestacao">
     <xs:annotation>
       <xs:documentation>
-	    Modo de Prestação:
+        Modo de Prestação:
         0 - Desconhecido (tipo não informado na nota de origem);
         1 - Transfronteiriço;
         2 - Consumo no Brasil;
@@ -788,7 +790,7 @@
   <xs:simpleType name="TSEnvMDIC">
     <xs:annotation>
       <xs:documentation>
-		Compartilhar as informações da NFS-e gerada a partir desta DPS com a Secretaria de Comércio Exterior:
+        Compartilhar as informações da NFS-e gerada a partir desta DPS com a Secretaria de Comércio Exterior:
         0 - Não enviar para o MDIC;
         1 - Enviar para o MDIC;
       </xs:documentation>
@@ -829,7 +831,7 @@
   <xs:simpleType name="TSRodagem">
     <xs:annotation>
       <xs:documentation>
-		Tipo de rodagem:
+        Tipo de rodagem:
         1 - Simples;
         2 - Dupla;
       </xs:documentation>
@@ -906,7 +908,7 @@
   <xs:simpleType name="TSIdeDedRed">
     <xs:annotation>
       <xs:documentation>
-		Identificação da Dedução/Redução:
+	Identificação da Dedução/Redução:
         1 – Alimentação e bebidas/frigobar;
         2 – Materiais;
         3 – Produção externa;
@@ -961,7 +963,7 @@
   <xs:simpleType name="TSOpExigSuspensa">
     <xs:annotation>
       <xs:documentation>
-	    Opção para Exigibilidade Suspensa:
+        Opção para Exigibilidade Suspensa:
         1 - Exigibilidade Suspensa por Decisão Judicial;
         2 - Exigibilidade Suspensa por Processo Administrativo;
       </xs:documentation>
@@ -983,7 +985,7 @@
   <xs:simpleType name="TSOpSimpNac">
     <xs:annotation>
       <xs:documentation>
-	    Situação perante o Simples Nacional:
+        Situação perante o Simples Nacional:
         1 - Não Optante;
         2 - Optante - Microempreendedor Individual (MEI);
         3 - Optante - Microempresa ou Empresa de Pequeno Porte (ME/EPP);
@@ -999,11 +1001,11 @@
   <xs:simpleType name="TSRegimeApuracaoSimpNac">
     <xs:annotation>
       <xs:documentation>
-        Opção para que o contribuinte optante pelo Simples Nacional ME/EPP (opSimpNac = 3) possa indicar, ao emitir o documento fiscal, em qual regime de apuração os tributos federais e municipal estão inseridos, caso tenha ultrapassado algum sublimite ou limite definido para o Simples Nacional.
-        1 – Regime de apuração dos tributos federais e municipal pelo SN;
-        2 – Regime de apuração dos tributos federais pelo SN e ISSQN  por fora do SN conforme respectiva legislação municipal do tributo;
-        3 – Regime de apuração dos tributos federais e municipal por fora do SN conforme respectivas legilações federal e municipal de cada tributo;
-      </xs:documentation>
+		  Opção para que o contribuinte optante pelo Simples Nacional ME/EPP (opSimpNac = 3) possa indicar, ao emitir o documento fiscal, em qual regime de apuração os tributos federais e municipal estão inseridos, caso tenha ultrapassado algum sublimite ou limite definido para o Simples Nacional.
+		  1 – Regime de apuração dos tributos federais e municipal pelo SN;
+		  2 – Regime de apuração dos tributos federais pelo SN e ISSQN  por fora do SN conforme respectiva legislação municipal do tributo;
+		  3 – Regime de apuração dos tributos federais e municipal por fora do SN conforme respectivas legislações federal e municipal de cada tributo;
+	  </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:whiteSpace value="preserve"/>
@@ -1015,7 +1017,7 @@
   <xs:simpleType name="TSOpSNLimUltrap">
     <xs:annotation>
       <xs:documentation>
-	    Opção que indica se o limite do Simples Nacional foi ultrapassado:
+        Opção que indica se o limite do Simples Nacional foi ultrapassado:
         0 - Não ultrapassado;
         1 - Ultrapassado;
       </xs:documentation>
@@ -1029,7 +1031,7 @@
   <xs:simpleType name="TSRegEspTrib">
     <xs:annotation>
       <xs:documentation>
-	    Tipos de Regimes Especiais de Tributação:
+        Tipos de Regimes Especiais de Tributação:
         0 - Nenhum;
         1 - Ato Cooperado (Cooperativa);
         2 - Estimativa;
@@ -1053,7 +1055,7 @@
   <xs:simpleType name="TSTribISSQN">
     <xs:annotation>
       <xs:documentation>
-	    Tributação do ISSQN sobre o serviço prestado:
+        Tributação do ISSQN sobre o serviço prestado:
         1 - Operação tributável;
         2 - Imunidade;
         3 - Exportação de serviço;
@@ -1168,7 +1170,7 @@
   <xs:simpleType name="TSTipoRetPISCofins">
     <xs:annotation>
       <xs:documentation>
-	    Tipo de retencao do Pis/Cofins:
+        Tipo de retencao do Pis/Cofins:
         1 - Retido;
         2 - Não Retido;
       </xs:documentation>
@@ -1182,7 +1184,7 @@
   <xs:simpleType name="TSTipoIndTotTrib">
     <xs:annotation>
       <xs:documentation>
-	    Indicador de informação de valor total de tributos. Possui valor fixo igual a zero (indTotTrib=0).
+        Indicador de informação de valor total de tributos. Possui valor fixo igual a zero (indTotTrib=0).
         Não informar nenhum valor estimado para os Tributos (Decreto 8.264/2014).
         0 - Não;
       </xs:documentation>
@@ -1195,13 +1197,12 @@
   <xs:simpleType name="TBMISSQN">
     <xs:annotation>
       <xs:documentation>
-		  Tipo Benefício Municipal (BM):
-
-		  1) Isenção;
-		  2) Redução da BC em 'ppBM' %;
-		  3) Redução da BC em R$ 'vInfoBM';
-		  4) Alíquota Diferenciada de 'aliqDifBM' %;
-	  </xs:documentation>
+        Tipo Benefício Municipal (BM):
+        1) Isenção;
+        2) Redução da BC em 'ppBM' %;
+        3) Redução da BC em R$ 'vInfoBM';
+        4) Alíquota Diferenciada de 'aliqDifBM' %;
+      </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
     <xs:whiteSpace value="preserve"/>
@@ -1214,18 +1215,19 @@
   <xs:simpleType name="TStat">
     <xs:annotation>
       <xs:documentation>
-	    100 - NFS-e Gerada;
-        101 - NFS-e de Substituição Gerada;
+        Situações possíveis:
+        100 - NFS-e Gerada;
         102 - NFS-e de Decisão Judicial;
-        103 - NFS-e Avulsa;"
+        103 - NFS-e Avulsa;
+        107 - NFS-e MEI;
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:whiteSpace value="preserve"/>
       <xs:enumeration value="100"/>
-      <xs:enumeration value="101"/>
       <xs:enumeration value="102"/>
       <xs:enumeration value="103"/>
+      <xs:enumeration value="107"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="TSNumDPS">
@@ -1331,6 +1333,13 @@
       <xs:maxLength value="600"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="TSDesc500">
+    <xs:restriction base="TSString">
+      <xs:whiteSpace value="preserve"/>
+      <xs:minLength value="1"/>
+      <xs:maxLength value="500"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="TSDesc1000">
     <xs:restriction base="TSString">
       <xs:minLength value="1"/>
@@ -1419,7 +1428,7 @@
       <xs:pattern value="[0-9]{15}"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="TSIdPedRefEvt">
+  <xs:simpleType name="TSIdPedRegEvt">
     <xs:annotation>
       <xs:documentation>
         O identificador do pedido de registro do evento é formado conforme a concatenação dos seguintes campos:
@@ -1428,8 +1437,8 @@
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:whiteSpace value="preserve"/>
-      <xs:maxLength value="62"/>
-      <xs:pattern value="PRE[0-9]{59}"/>
+      <xs:maxLength value="59"/>
+	  <xs:pattern value="PRE[0-9]{56}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="TSIdEvento">
@@ -1456,8 +1465,6 @@
       <xs:enumeration value="e105104"/>
       <xs:enumeration value="e105105"/>
       <xs:enumeration value="e305101"/>
-      <xs:enumeration value="e907202"/>
-      <xs:enumeration value="e967203"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="TSIdNumEvento">

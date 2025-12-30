@@ -1371,7 +1371,7 @@ if (isset($this->std->infdps->serv->atvevento)) {
     {
         $string = 'PRE';
         $string .= $this->std->infpedreg->chnfse; //Chave de acesso da NFS-e (50) +
-        $string .= $this->codigoEvento(); //Código do evento (6)
+        $string .= $this->codigoEvento(); //Código do evento (3)
         $string .= str_pad($this->std->npedregevento, 3, 0, STR_PAD_LEFT); //Número do Pedido de Registro do Evento (nPedRegEvento) (3)
         $this->preId = $string;
         return $string;
@@ -1379,13 +1379,13 @@ if (isset($this->std->infdps->serv->atvevento)) {
 
     private function codigoEvento()
     {
-        $codigo = '000000';
+        $codigo = '000';
         switch (true) {
             case isset($this->std->infpedreg->e101101):
-                $codigo = '101101';
+                $codigo = '101';
                 break;
             case isset($this->std->infpedreg->e105102):
-                $codigo = '105102';
+                $codigo = '102';
                 break;
         }
 

@@ -127,7 +127,16 @@
       </xs:element>
       <xs:element name="valores" type="TCValoresNFSe">
         <xs:annotation>
-          <xs:documentation>Grupo de valores referentes ao Serviço Prestado</xs:documentation>
+          <xs:documentation>
+            Grupo de valores referentes ao Serviço Prestado
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="xOutInf" type="TSDesc2000" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Uso da Administração Tributária Municipal.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="DPS" type="TCDPS">
@@ -213,8 +222,7 @@
         <xs:annotation>
           <xs:documentation>
             Tipo Benefício Municipal (BM):
-
-			1) Isenção;
+            1) Isenção;
             2) Redução da BC em 'ppBM' %;
             3) Redução da BC em R$ 'vInfoBM';
             4) Alíquota Diferenciada de 'aliqDifBM' %;
@@ -264,14 +272,7 @@
             Valor Líquido (R$) = vServ – vDescIncond – vDescCond – (vRetCP + vRetIRRF + vRetCSLL)* – (vISSQN - vPIS + vCOFINS)**
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-      <xs:element name="xOutInf" type="TSDesc2000" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>
-            Uso da Administração Tributária Municipal.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      </xs:element>      
     </xs:sequence>
   </xs:complexType>
   <!--TIPO COMPLEXO DPS-->
@@ -500,11 +501,11 @@
       <xs:element name="regApTribSN" type="TSRegimeApuracaoSimpNac" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
-            Opção para que o contribuinte optante pelo Simples Nacional ME/EPP (opSimpNac = 3) possa indicar, ao emitir o documento fiscal, em qual regime de apuração os tributos federais e municipal estão inseridos, caso tenha ultrapassado algum sublimite ou limite definido para o Simples Nacional.
-            1 – Regime de apuração dos tributos federais e municipal pelo SN;
-            2 – Regime de apuração dos tributos federais pelo SN e ISSQN  por fora do SN conforme respectiva legislação municipal do tributo;
-            3 – Regime de apuração dos tributos federais e municipal por fora do SN conforme respectivas legilações federal e municipal de cada tributo;
-          </xs:documentation>
+			  Opção para que o contribuinte optante pelo Simples Nacional ME/EPP (opSimpNac = 3) possa indicar, ao emitir o documento fiscal, em qual regime de apuração os tributos federais e municipal estão inseridos, caso tenha ultrapassado algum sublimite ou limite definido para o Simples Nacional.
+			  1 – Regime de apuração dos tributos federais e municipal pelo SN;
+			  2 – Regime de apuração dos tributos federais pelo SN e ISSQN  por fora do SN conforme respectiva legislação municipal do tributo;
+			  3 – Regime de apuração dos tributos federais e municipal por fora do SN conforme respectivas legislações federal e municipal de cada tributo;
+		  </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="regEspTrib" type="TSRegEspTrib">
@@ -595,7 +596,7 @@
   <!--TIPO COMPLEXO PARA ENDEREÇO -->
   <xs:complexType name="TCEndereco">
     <xs:sequence>
-      <xs:choice minOccurs="0">
+      <xs:choice>
         <xs:element name="endNac" type="TCEnderNac">
           <xs:annotation>
             <xs:documentation>Grupo de informações específicas de endereço nacional</xs:documentation>
@@ -825,11 +826,6 @@
           <xs:documentation>Grupo de informações relativas à exportação/importação de serviço prestado</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="lsadppu" type="TCLocacaoSublocacao" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Grupo de informações relativas a atividades de Locação, sublocação, arrendamento, direito de passagem ou permissão de uso, compartilhado ou não, de ferrovia, rodovia, postes, cabos, dutos e condutos de qualquer natureza</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="obra" type="TCInfoObra" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Grupo de informações do DPS relativas à serviço de obra</xs:documentation>
@@ -838,11 +834,6 @@
       <xs:element name="atvEvento" type="TCAtvEvento" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Grupo de informações do DPS relativas à Evento</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="explRod" type="TCExploracaoRodoviaria" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Grupo de informações relativas a pedágio</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="infoCompl" type="TCInfoCompl" minOccurs="0">
@@ -875,7 +866,7 @@
       <xs:element name="cTribNac" type="TSCodTribNac">
         <xs:annotation>
           <xs:documentation>
-            Código de tributação nacional do ISSQN:
+            Código de tributação nacional do ISSQN, nos termos da LC 116/2003, conforme aba MUN.INCID_INFO.SERV. do ANEXO I
             Regra de formação - 6 dígitos numéricos sendo: 2 para Item (LC 116/2003), 2 para Subitem (LC 116/2003) e 2 para Desdobro Nacional
           </xs:documentation>
         </xs:annotation>
@@ -892,7 +883,7 @@
       </xs:element>
       <xs:element name="cNBS" type="TSCodNBS" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Código NBS (Nomenclatura Brasileira de Serviços, Intangíveis e outras Operações que produzam Variações no Patrimônio) correspondente ao serviço prestado</xs:documentation>
+          <xs:documentation>Código NBS correspondente ao serviço prestado, seguindo a versão 2.0, conforme Anexo B</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="cIntContrib" type="TSCodigoInternoContribuinte" minOccurs="0">
@@ -921,7 +912,8 @@
       </xs:element>
       <xs:element name="vincPrest" type="TSVincPrest">
         <xs:annotation>
-          <xs:documentation>Vínculo entre as partes no negócio:
+          <xs:documentation>
+            Vínculo entre as partes no negócio:
             0 - Sem vínculo com o Tomador/Prestador
             1 - Controlada;
             2 - Controladora;
@@ -1024,84 +1016,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <!--TIPO COMPLEXO PARA INFORMAÇÕES DE PEDÁGIO-->
-  <xs:complexType name="TCExploracaoRodoviaria">
-    <xs:sequence>
-      <xs:element name="categVeic" type="TSCategVeic">
-        <xs:annotation>
-          <xs:documentation>
-            Categorias de veículos para cobrança:
-            00 - Categoria de veículos (tipo não informado na nota de origem)
-            01 - Automóvel, caminhonete e furgão;
-            02 - Caminhão leve, ônibus, caminhão trator e furgão;
-            03 - Automóvel e caminhonete com semireboque;
-            04 - Caminhão, caminhão-trator, caminhão-trator com semi-reboque e ônibus;
-            05 - Automóvel e caminhonete com reboque;
-            06 - Caminhão com reboque;
-            07 - Caminhão trator com semi-reboque;
-            08 - Motocicletas, motonetas e bicicletas motorizadas;
-            09 - Veículo especial;
-            10 - Veículo Isento;
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nEixos" type="TSNumEixos">
-        <xs:annotation>
-          <xs:documentation>Número de eixos para fins de cobrança</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="rodagem" type="TSRodagem">
-        <xs:annotation>
-          <xs:documentation>Tipo de rodagem</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="sentido" type="TSSentido">
-        <xs:annotation>
-          <xs:documentation>Placa do veículo</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="placa" type="TSPlaca">
-        <xs:annotation>
-          <xs:documentation>Placa do veículo</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="codAcessoPed" type="TSCodAcessoPed">
-        <xs:annotation>
-          <xs:documentation>Código de acesso gerado automaticamente pelo sistema emissor da concessionária.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="codContrato" type="TSCodContrato">
-        <xs:annotation>
-          <xs:documentation>Código de contrato gerado automaticamente pelo sistema nacional no cadastro da concessionária.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <!--TIPO COMPLEXO PARA INFORMAÇÕES DE LOCAÇÃO, SUBLOCAÇÃO, ARRENDAMENTO, DIRETO DE PASSAGEM OU PERMISSÃO DE USO-->
-  <xs:complexType name="TCLocacaoSublocacao">
-    <xs:sequence>
-      <xs:element name="categ" type="TSCategoriaServico">
-        <xs:annotation>
-          <xs:documentation>Categoria do serviço</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="objeto" type="TCObjetoLocacao">
-        <xs:annotation>
-          <xs:documentation>Tipo de objetos da locação, sublocação, arrendamento, direito de passagem ou permissão de uso</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="extensao" type="TSExtensaoTotal">
-        <xs:annotation>
-          <xs:documentation>Extensão total da ferrovia, rodovia, cabos, dutos ou condutos</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nPostes" type="TSNumeroPostes">
-        <xs:annotation>
-          <xs:documentation>Número total de postes</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
   <!--TIPO COMPLEXO PARA INFORMAÇÕES DE ATIVIDADE DE EVENTO-->
   <xs:complexType name="TCAtvEvento">
     <xs:sequence>
@@ -1145,7 +1059,8 @@
       <xs:choice minOccurs="1">
         <xs:element name="cObra" type="TSCodObra">
           <xs:annotation>
-            <xs:documentation>Número de identificação da obra.
+            <xs:documentation>
+              Número de identificação da obra.
               Cadastro Nacional de Obras (CNO) ou Cadastro Específico do INSS (CEI).
             </xs:documentation>
           </xs:annotation>
