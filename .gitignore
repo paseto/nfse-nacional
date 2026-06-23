@@ -1,4 +1,6 @@
 .idea/
 composer.lock
 vendor/
-exemples/certs/
+examples/certs/
+examples/local/
+examples/certificado*
