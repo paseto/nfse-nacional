@@ -140,6 +140,13 @@ class Dps implements DpsInterface
                 $this->std->infdps->chnfserej
             );
         }
+        $finNfse = $this->std->infdps->finnfse ?? 0;
+        $this->dom->addChild(
+            $infdps_inner,
+            'finNFSe',
+            (string)$finNfse,
+            true
+        );
         $this->dom->addChild(
             $infdps_inner,
             'cLocEmi',
