@@ -133,6 +133,14 @@ class Dps implements DpsInterface
                 $this->std->infdps->cmotivoemisti
             );
         }
+        $finNfse = $this->std->infdps->finnfse
+            ?? ($this->std->infdps->ibscbs->finnfse ?? 0);
+        $this->dom->addChild(
+            $infdps_inner,
+            'finNFSe',
+            (string)$finNfse,
+            true
+        );
         if (isset($this->std->infdps->chnfserej)) {
             $this->dom->addChild(
                 $infdps_inner,
@@ -532,17 +540,19 @@ class Dps implements DpsInterface
                 true
             );
         }
-        $this->dom->addChild(
-            $cserv_inner,
-            'xDescServ',
-            $this->std->infdps->serv->cserv->xdescserv,
-            true
-        );
         if (isset($this->std->infdps->serv->cserv->cnbs)) {
             $this->dom->addChild(
                 $cserv_inner,
                 'cNBS',
                 $this->std->infdps->serv->cserv->cnbs,
+                true
+            );
+        }
+        if (isset($this->std->infdps->serv->cserv->catvsn)) {
+            $this->dom->addChild(
+                $cserv_inner,
+                'cAtvSN',
+                $this->std->infdps->serv->cserv->catvsn,
                 true
             );
         }
@@ -554,6 +564,12 @@ class Dps implements DpsInterface
                 true
             );
         }
+        $this->dom->addChild(
+            $cserv_inner,
+            'xDescServ',
+            $this->std->infdps->serv->cserv->xdescserv,
+            true
+        );
 
         //grupo comExt
         if (isset($this->std->infdps->serv->comext)) {
@@ -1103,12 +1119,6 @@ class Dps implements DpsInterface
 
             $this->dom->addChild(
                 $ibscbs_inner,
-                'finNFSe',
-                $this->std->infdps->ibscbs->finnfse,
-                true
-            );
-            $this->dom->addChild(
-                $ibscbs_inner,
                 'indFinal',
                 $this->std->infdps->ibscbs->indfinal,
                 true
@@ -1139,33 +1149,44 @@ class Dps implements DpsInterface
                 $this->std->infdps->ibscbs->inddest,
                 true
             );
-            if (isset($this->std->infdps->ibscbs->valores->trib->gibscbs)) {
+            if (isset($this->std->infdps->ibscbs->valores->trib)) {
                 $ibscbs_valores_inner = $this->dom->createElement('valores');
                 $ibscbs_inner->appendChild($ibscbs_valores_inner);
 
                 $ibscbs_valores_trib_inner = $this->dom->createElement('trib');
                 $ibscbs_valores_inner->appendChild($ibscbs_valores_trib_inner);
 
-                $ibscbs_valores_trib_gibscbs_inner = $this->dom->createElement('gIBSCBS');
-                $ibscbs_valores_trib_inner->appendChild($ibscbs_valores_trib_gibscbs_inner);
-                $this->dom->addChild(
-                    $ibscbs_valores_trib_gibscbs_inner,
-                    'CST',
-                    $this->std->infdps->ibscbs->valores->trib->gibscbs->cst,
-                    true
-                );
-                $this->dom->addChild(
-                    $ibscbs_valores_trib_gibscbs_inner,
-                    'cClassTrib',
-                    $this->std->infdps->ibscbs->valores->trib->gibscbs->cclasstrib,
-                    true
-                );
-                if (isset($this->std->infdps->ibscbs->valores->trib->gibscbs->ccredpres)) {
+                $trib = $this->std->infdps->ibscbs->valores->trib;
+                $cst = $trib->cst ?? ($trib->gibscbs->cst ?? null);
+                $cClassTrib = $trib->cclasstrib ?? ($trib->gibscbs->cclasstrib ?? null);
+                if ($cst !== null && $cClassTrib !== null) {
                     $this->dom->addChild(
-                        $ibscbs_valores_trib_gibscbs_inner,
-                        'cCredPres',
-                        $this->std->infdps->ibscbs->valores->trib->gibscbs->ccredpres
+                        $ibscbs_valores_trib_inner,
+                        'CST',
+                        $cst,
+                        true
                     );
+                    $this->dom->addChild(
+                        $ibscbs_valores_trib_inner,
+                        'cClassTrib',
+                        $cClassTrib,
+                        true
+                    );
+                }
+
+                $cCredPres = $trib->gibscbs->ccredpres ?? null;
+                $hasGTribRegular = isset($trib->gibscbs->gtribregular);
+                $hasGDif = isset($trib->gibscbs->gdif);
+                if ($cCredPres !== null || $hasGTribRegular || $hasGDif) {
+                    $gibscbs_inner = $this->dom->createElement('gIBSCBS');
+                    $ibscbs_valores_trib_inner->appendChild($gibscbs_inner);
+                    if ($cCredPres !== null) {
+                        $this->dom->addChild(
+                            $gibscbs_inner,
+                            'cCredPres',
+                            $cCredPres
+                        );
+                    }
                 }
             }
         }
